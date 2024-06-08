@@ -6,10 +6,12 @@ let estaEscuro = false
 btn_tema.addEventListener('click', ()=>{
     if(estaEscuro){
         html.setAttribute('tema', 'claro')
+        btn_tema.innerHTML = 'Escuro'
         localStorage.setItem('modo', 'claro')
         estaEscuro = false
     } else {
         html.setAttribute('tema', 'escuro')
+        btn_tema.innerHTML = 'Claro'
         localStorage.setItem('modo', 'escuro')
         estaEscuro = true
     }
