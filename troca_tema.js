@@ -3,8 +3,8 @@ const html = document.querySelector('html')
 
 let estaEscuro = false
 
-btn_tema.addEventListener('click', ()=>{
-    if(estaEscuro){
+btn_tema.addEventListener('click', () => {
+    if (estaEscuro) {
         html.setAttribute('tema', 'claro')
         btn_tema.innerHTML = 'Escuro'
         localStorage.setItem('modo', 'claro')
@@ -19,12 +19,14 @@ btn_tema.addEventListener('click', ()=>{
 
 let valor_atual = localStorage.getItem('modo')
 
-function trocaTemaAuto(valor_atual){
-    if(valor_atual == 'escuro') {
+function trocaTemaAuto(valor_atual) {
+    if (valor_atual == 'escuro') {
         html.setAttribute('tema', 'escuro')
+        btn_tema.innerHTML = 'Claro'
         estaEscuro = true
     } else {
         html.setAttribute('tema', 'claro')
+        btn_tema.innerHTML = 'Escuro'
         estaEscuro = false
     }
 }
