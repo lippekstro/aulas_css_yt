@@ -64,6 +64,71 @@ nav a {
     text-align: justify;
 }
 
+/* 
+Define a estrutura do carrossel
+O overflow: hidden esconde as fotos que estão fora da área visível
+A posição relativa é usada para permitir a posição absoluta dos controles do carrossel
+*/
+.carrossel-container {
+    overflow: hidden;
+    position: relative;
+}
+
+/* 
+O display: flex alinha as imagens em uma única linha horizontal
+A altura é definida utilizando a função clamp() para garantir uma altura responsiva:
+    - 30vh como valor mínimo
+    - 50vh como valor máximo
+    - calc(10vw + 30vh) para um ajuste dinâmico baseado na largura da viewport
+A transição de 0.5s com ease-in-out é para suavizar o movimento das imagens durante a navegação
+*/
+.carrossel-imgs {
+    display: flex;
+    height: clamp(30vh, calc(10vw + 30vh), 50vh);
+    transition: 0.5s ease-in-out;
+}
+
+/* 
+As imagens ocupam 100% da largura do contêiner, empurrando as imagens subsequentes para fora da tela visível
+Isso cria o efeito de carrossel onde apenas uma imagem é visível por vez
+*/
+.carrossel-imgs img {
+    min-width: 100%;
+}
+
+/* 
+Posiciona os controles de navegação dentro do contêiner do carrossel
+O top: 50% posiciona os controles verticalmente no meio do carrossel
+A largura de 100% faz com que os controles ocupem toda a largura do carrossel
+O display: flex alinha os controles em linha
+justify-content: space-between posiciona os controles nos extremos opostos
+O transform: translateY(-50%) ajusta a posição dos controles para centralizá-los verticalmente
+*/
+.carrossel-controls {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+/* 
+Estiliza os botões de controle
+Fundo preto semi-transparente para melhor visibilidade sobre as imagens
+Sem borda para um visual mais limpo
+Fonte de tamanho 2rem para uma boa visibilidade
+Cursor: pointer para indicar que são clicáveis
+Cor do texto branca para contraste com o fundo
+*/
+.carrossel-controls button {
+    background-color: #0000007a;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: white;
+}
+
 @media only screen and (max-width: 700px) {
     .card-container {
         grid-template-columns: repeat(1, 1fr);
